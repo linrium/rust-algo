@@ -1,6 +1,42 @@
 use std::collections::HashMap;
 
-// Given a set of strings words and a string pattern return a list of all of the strings in words that matches the pattern of the pattern string.
+/// # Problem:
+/// Given a set of strings words and a string pattern return a list of all of the strings in words that matches the pattern of the pattern string.
+///
+/// # Example 1:
+/// Input:
+/// - words = ["aa", "bb"]
+/// - pattern = "cc"
+/// Output: ["aa", "bb"]
+/// Explanation: Both strings repeat letters just as the pattern string does.
+///
+/// # Example 2:
+/// Input:
+/// - words = ["aac", "bbc", "bcb", "yzy"]
+/// - pattern = "ghg"
+/// Output: ["bcb", "yzy"]
+///
+/// # Example 3:
+/// Input:
+/// - words = ["aa", "bb"]
+/// - pattern = "zy"
+/// Output: []
+///
+/// # Notes:
+/// - Return the words in the order as they appear in the input
+///
+/// # Approach:
+/// - We create two tables (lists/arrays) to enforce the mapping to check alignment for each word against the pattern.
+///
+/// # Companies:
+/// - Amazon
+/// - Microsoft
+///
+/// # Complexity:
+/// - Time: ?
+/// - Space: ?
+///
+/// # Difficulty: Easy
 fn find_and_replace_pattern(words: Vec<String>, pattern: &String) -> Vec<String> {
     let mut matches = vec![];
     let hash = encode_string(pattern);

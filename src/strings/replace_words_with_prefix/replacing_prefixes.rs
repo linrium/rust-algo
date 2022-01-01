@@ -1,8 +1,29 @@
 use std::collections::HashMap;
 
-// Given a list of prefixes prefixes and a sentence sentence, replace all words in sentence that start with any of the given prefixes in prefixes.
-// Time: O(max(m, n^2))
-// Space: O(max(m, n^2))
+/// # Problem:
+/// Given a list of prefixes prefixes and a sentence sentence, replace all words in sentence that start with any of the given prefixes in prefixes.
+///
+/// # Example 1:
+/// Input:
+/// - prefixes = ["cat", "catch", "Alabama"]
+/// - sentence = "The cats were catching yarn"
+/// Output: "The cat were catch yarn"
+/// Explanation: "cats" and "catching" were both replaced by their shortest prefix match "cat"
+///
+/// # Note:
+/// - The shortest matching prefix will win when a word matches multiple prefixes
+///
+/// # Companies:
+/// - Adobe
+/// - Amazon
+/// - Microsoft
+/// - Walmart Labs
+///
+/// # Complexity:
+/// - Time: O(max(m, n^2)) where m is the length of the longest prefix and n is the length of the sentence
+/// - Space: O(max(m, n^2)) where m is the length of the longest prefix and n is the length of the sentence
+///
+/// # Difficulty: Easy
 fn replace_words_with_prefix(prefixes: Vec<String>, sentence: String) -> String {
     let mut map: HashMap<String, String> = HashMap::new();
     for prefix in prefixes {

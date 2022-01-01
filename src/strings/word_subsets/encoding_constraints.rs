@@ -1,27 +1,42 @@
+/// # Problem:
 /// Given 2 sequences of strings A and B, determine all of the "universal" characters in A relative to B. Return the list of these universal characters.
 /// A string a in A is "universal" relative to B if for each string in B (we will name b) a is a superset of b. This means that a has all of the characters in each b (ignoring order) in quantity at least.
-/// ## Example 1:
-/// - Input:
-///     - A = ["orange", "room", "more"]
-///     - B = ["rm", "oo"]
-/// - Output: ["room"]
-/// - Explanation:
-///     - "orange" is missing an "m" so it is not a superset of "rm". It also only has one "o" so it is not a superset of "oo".
-///     - "room" is a superset of "rm" and "oo". The is all strings in B so "room" is universal.
-///     - "more" is a superset of "rm" since it has an "m" and an "r". It only has one "o" so it is not a superset of "oo".
-/// ## Example 2:
-/// - Input:
-///     - A = ["padding", "css", "randomcs"]
-///     - B = ["cs", "c"]
-/// - Output: ["css", "randomcs"]
-/// - Explanation:
-///     - "padding" is missing an "s" so it is not a superset of "cs".
-///     - "css" is a superset of "cs".
-///     - "randomcs" is a superset of "cs" and "c". It has all of the characters in B in quantity at least.
 ///
-/// ## Constraints:
+/// # Example 1:
+/// Input:
+/// - A = ["orange", "room", "more"]
+/// - B = ["rm", "oo"]
+/// Output: ["room"]
+/// Explanation:
+/// - "orange" is missing an "m" so it is not a superset of "rm". It also only has one "o" so it is not a superset of "oo".
+/// - "room" is a superset of "rm" and "oo". The is all strings in B so "room" is universal.
+/// - "more" is a superset of "rm" since it has an "m" and an "r". It only has one "o" so it is not a superset of "oo".
+///
+/// # Example 2:
+/// Input:
+/// - A = ["padding", "css", "randomcs"]
+/// - B = ["cs", "c"]
+/// Output: ["css", "randomcs"]
+/// Explanation:
+/// - "padding" is missing an "s" so it is not a superset of "cs".
+/// - "css" is a superset of "cs".
+/// - "randomcs" is a superset of "cs" and "c". It has all of the characters in B in quantity at least.
+///
+/// # Approach:
+/// - Instead of a naïve quadratic/cubic approach of enforcing the constraints word by word (for each A check all B's), we decide to extract all the information we need from B to determine the universal strings in A.
+///
+/// # Constraints:
 /// - B.length > 0
 ///
+/// # Complexity:
+/// - Time: O(max(m, n)) where m is the longest string in A and n is the longest string in B
+/// - Space: O(max(m, n)) where m is the longest string in A and n is the longest string in B
+///
+/// # Companies:
+/// - Google
+/// - Walmart Labs
+///
+/// # Difficulty: Easy
 fn word_subsets(a: Vec<String>, b: Vec<String>) -> Vec<String> {
     let mut b_count: [u8; 26] = [0; 26];
 
