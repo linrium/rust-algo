@@ -6,3 +6,4 @@ mod word_subsets;
 mod group_anagrams;
 mod longest_palindrome_construct;
 mod valid_palindrome;
+mod longest_unique_character_substring;
